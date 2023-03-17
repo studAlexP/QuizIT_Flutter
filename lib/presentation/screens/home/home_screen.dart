@@ -98,7 +98,7 @@ class _NameButtonField extends State<NameButtonField> {
               Settings.name = textController.text;
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (context) => const SettingsPage(),
                 )
               );
             }, 
