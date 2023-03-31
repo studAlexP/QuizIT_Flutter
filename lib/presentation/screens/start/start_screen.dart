@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_it_flutter/domain/util/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
+import 'package:quiz_it_flutter/presentation/screens/quiz/quiz_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/settings/settings_screen.dart';
 
 class StartPage extends StatelessWidget {
@@ -91,7 +92,7 @@ class StartButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30))),
           onPressed: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const HomePage()));
+                MaterialPageRoute(builder: (context) => const QuizPage()));
           },
           child: const Text(
             "Start",
