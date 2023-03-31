@@ -76,8 +76,8 @@ class Answers {
 
     String answerA;
     String answerB;
-    String? answerC;
-    String? answerD;
+    dynamic answerC;
+    dynamic answerD;
     dynamic answerE;
     dynamic answerF;
 
