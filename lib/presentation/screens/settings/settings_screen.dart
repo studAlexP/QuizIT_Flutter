@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_it_flutter/domain/util/settings.dart';
+import 'package:quiz_it_flutter/presentation/screens/categories/categories_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
+import 'package:quiz_it_flutter/presentation/screens/quiz/quiz_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/start/start_screen.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -74,7 +76,7 @@ class CategoryButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30))),
           onPressed: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const HomePage()));
+                MaterialPageRoute(builder: (context) => const CategoriesPage()));
           },
           child: const Text(
             "Categories",
