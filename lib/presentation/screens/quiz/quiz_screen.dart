@@ -3,6 +3,7 @@ import 'package:quiz_it_flutter/data/network/quiz_api_impl.dart';
 import 'package:quiz_it_flutter/domain/model/question.dart';
 import 'package:quiz_it_flutter/domain/util/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
+import 'package:quiz_it_flutter/presentation/screens/result/result_screen.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -44,7 +45,6 @@ class LoadingIndicator extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Loading"),
-        elevation: 3,
       ),
       body: const Center(child: CircularProgressIndicator()),
     );
@@ -57,7 +57,7 @@ class QuizPageContent extends StatefulWidget {
   const QuizPageContent({super.key, required this.questions});
 
   @override
-  _QuizPageContentState createState() => _QuizPageContentState();
+  State<StatefulWidget> createState() => _QuizPageContentState();
 }
 
 class _QuizPageContentState extends State<QuizPageContent> {
@@ -102,7 +102,13 @@ class _QuizPageContentState extends State<QuizPageContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Flexible(child: Text(widget.questions![currentQuestion].question))
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                child: Text(widget.questions![currentQuestion].question,
+                style: Theme.of(context).textTheme.displaySmall,)
+                )
+              )
           ],
         ),
         const SizedBox(
@@ -149,7 +155,7 @@ class _QuizPageContentState extends State<QuizPageContent> {
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
               onPressed: () => showAnswers(),
@@ -164,7 +170,7 @@ class _QuizPageContentState extends State<QuizPageContent> {
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HomePage()));
+                        builder: (context) => const ResultPage()));
                   },
                   child: const Text("End"))
           ],
@@ -179,7 +185,10 @@ class _QuizPageContentState extends State<QuizPageContent> {
       return ToggleButtons(
         onPressed: (index) => onPressed(!isSelected),
         isSelected: [isSelected],
-        children: [Flexible(child: Text(answer))],
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: Text(answer))],
       );
     });
   }
