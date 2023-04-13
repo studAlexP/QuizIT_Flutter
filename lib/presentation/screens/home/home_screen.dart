@@ -29,12 +29,9 @@ class HomePageContent extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.only(top: 40),
-                child: const Text(
+                child: Text(
                   "Welcome to QuizIT",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                   textAlign: TextAlign.center,
                   )
                 ),
@@ -47,18 +44,14 @@ class HomePageContent extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.all(40),
-                child: const Text(
+                child: Text(
                   "Please enter your name:",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                   textAlign: TextAlign.center,
                   )
                 ),
             ],
           ),
-          //const SizedBox(height: 30,),
           const NameButtonField(),
         ]
         ),
@@ -89,7 +82,8 @@ class _NameButtonField extends State<NameButtonField> {
         TextField(
           controller: textController,
           decoration: const InputDecoration(
-            hintText: "Name"
+            hintText: "Name",
+            hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
           ),
         ),
         Padding(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_it_flutter/domain/util/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/categories/categories_screen.dart';
-import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
-import 'package:quiz_it_flutter/presentation/screens/quiz/quiz_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/start/start_screen.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -29,12 +27,9 @@ class SettingsPageContent extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 50),
-                  child: const Text(
+                  child: Text(
                     "Settings",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -71,16 +66,13 @@ class CategoryButton extends StatelessWidget {
       width: 150,
       height: 150,
       child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30))),
           onPressed: () {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const CategoriesPage()));
           },
-          child: const Text(
+          child: Text(
             "Categories",
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.displayMedium,
           )),
     );
   }
@@ -95,16 +87,13 @@ class RandomButton extends StatelessWidget {
       width: 150,
       height: 150,
       child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30))),
           onPressed: () {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const StartPage()));
           },
-          child: const Text(
+          child: Text(
             "Random",
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.displayMedium,
           )),
     );
   }
@@ -160,7 +149,6 @@ class DifficultySlider extends StatefulWidget {
 
 class _DifficultySliderState extends State<DifficultySlider> {
   double _value = 0;
-  String _difficulty = "";
 
   String getDifficulty(double value) {
     if (value == 0) {

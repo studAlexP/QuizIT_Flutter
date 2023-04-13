@@ -28,10 +28,10 @@ class StartPageContent extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 "You will have",
-                style: TextStyle(fontSize: 25),
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ],
           ),
@@ -39,20 +39,17 @@ class StartPageContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "${Settings.limit} - ${Settings.difficulty}",
-                style:
-                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
+              Text("${Settings.limit} - ${Settings.difficulty}",
+                  style: Theme.of(context).textTheme.titleLarge),
             ],
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 "Questions",
-                style: TextStyle(fontSize: 25),
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ],
           ),
@@ -94,9 +91,9 @@ class StartButton extends StatelessWidget {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const QuizPage()));
           },
-          child: const Text(
+          child: Text(
             "Start",
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.displayMedium,
           )),
     );
   }
@@ -118,9 +115,9 @@ class SettingsButton extends StatelessWidget {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const SettingsPage()));
           },
-          child: const Text(
+          child: Text(
             "Settings",
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.displayMedium,
           )),
     );
   }
