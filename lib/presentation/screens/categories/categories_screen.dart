@@ -7,14 +7,25 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: CategoriesPageContent(),
     );
   }
 }
 
 class CategoriesPageContent extends StatelessWidget {
-  const CategoriesPageContent({super.key});
+  CategoriesPageContent({super.key});
+
+  final List<String> categories = [
+    "Bash",
+    "CMS",
+    "Code",
+    "DevOps",
+    "Docker",
+    "Linux",
+    "SQL",
+    "Uncategorized"
+  ];
 
   void _onCategoryClicked(BuildContext context, String category) {
     Settings.category = category;
@@ -26,36 +37,21 @@ class CategoriesPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const Center(child: Padding(
-          padding: EdgeInsets.all(20.0),
+         Center(child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Text("Pick a category",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.titleMedium,
           ),
         )),
-        CategoryCard(
-            categoryText: "Bash",
-            onTap: () => _onCategoryClicked(context, "Bash")),
-        CategoryCard(
-            categoryText: "CMS",
-            onTap: () => _onCategoryClicked(context, "CMS")),
-        CategoryCard(
-            categoryText: "Code",
-            onTap: () => _onCategoryClicked(context, "Code")),
-        CategoryCard(
-            categoryText: "DevOps",
-            onTap: () => _onCategoryClicked(context, "DevOps")),
-        CategoryCard(
-            categoryText: "Docker",
-            onTap: () => _onCategoryClicked(context, "Docker")),
-        CategoryCard(
-            categoryText: "Linux",
-            onTap: () => _onCategoryClicked(context, "Linux")),
-        CategoryCard(
-            categoryText: "SQL",
-            onTap: () => _onCategoryClicked(context, "SQL")),
-        CategoryCard(
-            categoryText: "Uncategorized",
-            onTap: () => _onCategoryClicked(context, "Uncategorized"))
+        ...categories.map(
+          (categoryText) => Container(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: CategoryCard(
+              categoryText: categoryText,
+              onTap: () => _onCategoryClicked(context, categoryText),
+            ),
+          )
+        ).toList()
       ],
     );
   }
@@ -74,26 +70,23 @@ class CategoryCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Card(
-          elevation: 10,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: InkWell(
             onTap: () {
               Settings.category = categoryText;
               onTap();
             },
-            child: Center(
-              child: SizedBox(
-                  height: 100,
-                  child: Center(
-                    child: Text(
-                      categoryText,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  )),
-            ),
+              child: Center(
+                  child: SizedBox(
+                      height: 100,
+                      child: Center(
+                        child: Text(
+                          categoryText,
+                          style: Theme.of(context).textTheme.titleSmall
+                        ),
+                      )),
+                ),
+              ),
           ),
-        ),
       ],
     );
   }
