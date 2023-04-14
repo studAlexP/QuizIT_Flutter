@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_it_flutter/data/network/quiz_api_impl.dart';
-import 'package:quiz_it_flutter/domain/model/question.dart';
-import 'package:quiz_it_flutter/domain/util/settings.dart';
+import 'package:quiz_it_flutter/models/question.dart';
+import 'package:quiz_it_flutter/utils/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/result/result_screen.dart';
 

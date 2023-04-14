@@ -1,4 +1,4 @@
-import 'package:quiz_it_flutter/domain/model/question.dart';
+import 'package:quiz_it_flutter/models/question.dart';
 
 abstract class QuizApi {
 

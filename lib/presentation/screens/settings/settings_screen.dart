@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_it_flutter/domain/util/settings.dart';
+import 'package:quiz_it_flutter/utils/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/categories/categories_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/start/start_screen.dart';
 
