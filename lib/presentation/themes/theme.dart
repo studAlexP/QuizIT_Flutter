@@ -18,6 +18,10 @@ class DefaultTheme {
         borderRadius: BorderRadius.circular(30)
       ),
 
+      hintStyle: const TextStyle(
+        fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black
+      ),
+
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(color: Colors.green, width: 2)
@@ -67,7 +71,7 @@ class DefaultTheme {
         minHeight: 60
       ),
       borderRadius: BorderRadius.circular(30)
-    )
+    ),
   );
 
   static final darkTheme = ThemeData(
@@ -85,6 +89,10 @@ class DefaultTheme {
       border: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.green, width: 2),
         borderRadius: BorderRadius.circular(30)
+      ),
+
+      hintStyle: const TextStyle(
+        fontSize: 15, fontWeight: FontWeight.normal, color: Colors.white
       ),
 
       enabledBorder: OutlineInputBorder(
