@@ -188,7 +188,7 @@ class _QuizPageContentState extends State<QuizPageContent> {
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            child: Text(answer))],
+            child: Text(answer, style: Theme.of(context).textTheme.displaySmall,))],
       );
     });
   }
