@@ -70,8 +70,10 @@ class DefaultTheme {
     )
   );
 
-  static final darkTheme = ThemeData(
-    primarySwatch: Colors.green,
+  static final darkTheme = ThemeData.dark().copyWith(
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: Colors.green
+    ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
