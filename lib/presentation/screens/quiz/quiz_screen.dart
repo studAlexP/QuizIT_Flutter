@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_it_flutter/data/network/quiz_api_impl.dart';
 import 'package:quiz_it_flutter/models/question.dart';
 import 'package:quiz_it_flutter/utils/settings.dart';
-import 'package:quiz_it_flutter/presentation/screens/home/home_screen.dart';
 import 'package:quiz_it_flutter/presentation/screens/result/result_screen.dart';
+import 'package:quiz_it_flutter/viewmodels/quiz_viewmodel.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -13,13 +12,14 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Question>? questions;
+  final quizViewModel = QuizViewModel();
 
   getData() async {
-    questions = await QuizApiImpl().getQuestions(
-        category: Settings.category,
-        difficulty: Settings.difficulty,
-        limit: Settings.limit);
+    await quizViewModel.getQuestions(
+      category: Settings.category,
+      difficulty: Settings.difficulty,
+      limit: Settings.limit
+    );
   }
 
   @override
@@ -28,7 +28,7 @@ class _QuizPageState extends State<QuizPage> {
       future: getData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return QuizPageContent(questions: questions);
+          return QuizPageContent(questions: quizViewModel.questions);
         } else {
           return const LoadingIndicator();
         }
@@ -157,22 +157,31 @@ class _QuizPageContentState extends State<QuizPageContent> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(
-              onPressed: () => showAnswers(),
-              child: const Text("Show answers"),
+            Container(
+              padding: const EdgeInsets.all(15),
+              child: ElevatedButton(
+                onPressed: () => showAnswers(),
+                child: const Text("Show answers"),
+              ),
             ),
             if (currentQuestion + 1 < widget.questions!.length)
-              ElevatedButton(
-                onPressed: () => nextQuestion(),
-                child: const Text("Next"),
+              Container(
+                padding: const EdgeInsets.all(15),
+                child: ElevatedButton(
+                  onPressed: () => nextQuestion(),
+                  child: const Text("Next"),
+                ),
               )
             else
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ResultPage()));
-                  },
-                  child: const Text("End"))
+              Container(
+                padding: const EdgeInsets.all(15),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ResultPage()));
+                    },
+                    child: const Text("End")),
+              )
           ],
         )
       ]),
