@@ -1,17 +1,14 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:quiz_it_flutter/data/network/quiz_api.dart';
 import 'package:quiz_it_flutter/models/question.dart';
 
-class QuizApiImpl extends QuizApi {
+class QuizApi {
   
-  @override
   Future<List<Question>> getQuestions({
     required String category,
     required String difficulty,
     required String limit
     }) async {
-
       try {
         final queryParameters = {
         'apiKey' : dotenv.env['apiKey'],
@@ -28,5 +25,4 @@ class QuizApiImpl extends QuizApi {
         throw Exception(e.toString());
       } 
   }
-
 }
