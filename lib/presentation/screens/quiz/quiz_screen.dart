@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_it_flutter/models/question.dart';
 import 'package:quiz_it_flutter/utils/settings.dart';
 import 'package:quiz_it_flutter/presentation/screens/result/result_screen.dart';
-import 'package:quiz_it_flutter/viewmodels/quiz_viewmodel.dart';
+import 'package:quiz_it_flutter/presentation/viewmodels/quiz_viewmodel.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
