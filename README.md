@@ -31,7 +31,7 @@ $ cd QuizIT_Flutter
 
 $ flutter pub get
 ```
-To run this project use the following command & select :
+To run this project use the following command & select your device when prompted:
 ```
 $ flutter run
 ```
