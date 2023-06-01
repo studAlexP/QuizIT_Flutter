@@ -36,9 +36,9 @@ To run this project use the following command & select your device when prompted
 $ flutter run
 ```
 
-In your "local.properties" file add the api key with the following syntax:
+In your root folder create a .env file & add the api key with the following syntax:
 ```
-API_KEY=YOUR_API_KEY
+apiKey=YOUR_API_KEY
 ```
 
 ## Authors
