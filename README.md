@@ -1,16 +1,49 @@
-# quiz_it_flutter
+# QuizIT_Flutter
 
-A new Flutter project.
+QuitIT is a Flutter app with the main goal of providing helpful information to certain IT topics in a quiz-like manner.
+It was developed as a part of my bachelor thesis where I compared cross-platform and native Android app development.
+
+The native app can be found [here](https://github.com/studAlexP/QuizIT_Android).
 
 ## Getting Started
+These instructions will give you a copy of the project up and running on your local machine for development and testing purposes.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
+To fully use this app the following things are needed:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
++ [Android Studio](https://developer.android.com/studio) (tested with Android Studio Dolphin | 2021.3.1 Patch 1)
++ [Flutter v3.7.7 or greater](https://docs.flutter.dev/get-started/install)
++ [QuizAPI API Key](https://quizapi.io/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installing
+From your command line:
+```
+# Clone this repository
+
+$ git clone https://github.com/studAlexP/QuizIT.git
+
+# Change directory
+
+$ cd QuizIT_Flutter
+
+# Install the dependencies
+
+$ flutter pub get
+```
+To run this project use the following command & select :
+```
+$ flutter run
+```
+
+In your "local.properties" file add the api key with the following syntax:
+```
+API_KEY=YOUR_API_KEY
+```
+
+## Authors
++ **Alexande Pruka** - [studAlexP](https://github.com/studAlexP)
+
+## Acknowledgments
+
+A big thank you to [QuizAPI](https://quizapi.io/) for providing me the API
