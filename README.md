@@ -21,7 +21,7 @@ From your command line:
 ```
 # Clone this repository
 
-$ git clone https://github.com/studAlexP/QuizIT.git
+$ git clone https://github.com/studAlexP/QuizIT_Flutter.git
 
 # Change directory
 
